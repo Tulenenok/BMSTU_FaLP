@@ -1,0 +1,202 @@
+\chapter{Практические задания}
+
+\section{Представить следующие списки в виде списочные ячеек}
+
+1. \text{'(open close halph)}
+
+\img{25mm}{r_1}{}
+
+2. \text{'((open1) (close2) (halph3)) )}
+
+\img{42mm}{r_2}{}
+
+3. \text{'((one) for all (and (me (for you)))) }
+
+\img{56mm}{r_3}{}
+
+\newpage
+
+4. \text{'((TOOL) (call))}
+
+\img{45mm}{r_4}{}
+
+5. \text{'((TOOL1) ((call2)) ((sell)))}
+
+\img{55mm}{r_5}{}
+
+6. \text{'(((TOOL) (call)) ((sell)))}
+
+\img{55mm}{r_6}{}
+
+\section{Используя только функции CAR и CDR, написать выражения,
+возвращающие i-ый элемент списка}
+
+1. второй
+\begin{lstlisting}
+    (CAR (CDR '(1 2 3)))        ; 2
+    (CADR     '(1 2 3) )        ; 2
+\end{lstlisting}
+
+2. третий
+\begin{lstlisting}
+    (CAR (CDR (CDR '(1 2 3))))  ; 3
+    (CADDR         '(1 2 3)  )  ; 3
+\end{lstlisting}
+
+3. четвертый
+\begin{lstlisting}
+    (CAR (CDR (CDR (CDR '(1 2 3 4 )))))  ; 4
+    (CADDR              '(1 2 3 4)    )  ; 4
+\end{lstlisting}
+
+\section{Что будет в результате вычисления выражений?}
+
+1. \text{(CAADR '((blue cube) (red pyramid)))}
+\begin{lstlisting}
+     (CDR '((blue cube) (red pyramid)))      ; ((red pyramid))
+     (CAR '((red pyramid)))                   ; (red pyramid)
+     (CAR '(red pyramid))                     ; red
+
+     Ответ: red
+\end{lstlisting}
+
+2. \text{(CDAR '((abc) (def) (ghi)))}
+\begin{lstlisting}
+     (CAR '((abc) (def) (ghi)))             ; (abc)
+     (CDR '(abc))                           ; NIL
+
+     Ответ: NIL
+\end{lstlisting}
+
+
+3. \text{(CADR '((abc) (def) (ghi)))}
+\begin{lstlisting}
+     (CDR '((abc) (def) (ghi)))             ; ((def) (ghi))
+     (CAR '((def) (ghi)))                   ; (def)
+
+     Ответ: (def)
+\end{lstlisting}
+
+\newpage
+
+4. \text{(CADDR '((abc) (def) (ghi)))}
+\begin{lstlisting}
+     (CDR '((abc) (def) (ghi)))             ; ((def) (ghi))
+     (CDR '((def) (ghi)))                   ; ((ghi))
+     (CAR '((ghi)))                         ; (ghi)
+
+     Ответ: (ghi)
+\end{lstlisting}
+
+
+\section{Напишите результат вычисления выражений и объясните как он получен}
+
+Апостроф (quote) --- блокирует вычисление своего аргумента.
+
+Функция list создает и возвращает список, у которого голова --- это первый аргумент, хвост --- все остальные аргументы.
+
+Функция cons включает новый элемент в начало списка. Если вторым аргументом передан атом, а не список, то создает точечную пару. 
+
+\begin{lstlisting}
+    (list 'Fred 'and 'Wilma)          ; (Fred and Wilma)
+    (list 'Fred '(and Wilma))         ; (Fred (and Wilma))
+    (cons Nil Nil))                   ; (Nil)
+    (cons T Nil)                      ; (T)
+    (cons Nil T)                      ; (Nil . T)
+    (list Nil)                        ; (Nil)
+    (cons '(T) Nil)                   ; ((T))
+    (list '(one two) '(free temp))    ; ((one two) (free temp))
+    (cons 'Fred '(and Wilma))         ; (Fred and Wilma)
+    (cons 'Fred '(Wilma))             ; (Fred Wilma)
+    (list Nil Nil)                    ; (Nil Nil)
+    (list T Nil)                      ; (T Nil)
+    (list Nil T)                      ; (Nil T)
+    (cons T (list Nil))               ; (T Nil)
+    (list '(T) Nil)                   ; ((T) Nil)
+    (cons '(one two) '(free temp))    ; ((one two) free temp)
+\end{lstlisting}
+
+\section{Написать лямбда-выражение и соответствующую функцию}
+
+1. Написать функцию (f ar1 ar2 ar3 ar4), возвращающую список:
+((ar1 ar2) (ar3 ar4))
+
+\begin{lstlisting}
+    (
+    defun 
+        f1 
+        (ar1 ar2 ar3 ar4)
+        (list  (list ar1 ar2) (list ar3 ar4)  )
+    )
+    (f1 1 2 3 4)        ; ((1 2) (3 4))
+\end{lstlisting}
+
+\begin{lstlisting}
+    (
+        (
+        lambda 
+            (ar1 ar2 ar3 ar4)
+            (list  (list ar1 ar2) (list ar3 ar4)  )
+        )
+        1 2 3 4         
+    )                   ; ((1 2) (3 4))
+\end{lstlisting}
+
+2. Написать функцию (f ar1 ar2), возвращающую ((ar1) (ar2))
+
+\begin{lstlisting}
+    (
+    defun
+        f2 
+        (ar1 ar2)
+        (list (list ar1) (list ar2))
+    )
+    f2 (1 2)         ; ((1) (2)) 
+\end{lstlisting}
+
+\begin{lstlisting}
+    (
+        (
+        lambda 
+            (ar1 ar2)
+            (list (list ar1) (list ar2))  
+        ) 1 2
+    )                ; ((1) (2)) 
+\end{lstlisting}
+
+
+3. Написать функцию (f ar1), возвращающую (((ar1)))
+
+\begin{lstlisting}
+    (
+     defun
+        f3
+        (ar1)
+        (list (list (list ar1)))
+    )
+    f3(1)           ; (((1)))
+\end{lstlisting}
+
+\begin{lstlisting}
+    (
+        (
+        lambda 
+            (ar1)
+            (list (list (list ar1)))
+        )
+        1 
+    )                ; (((1)))
+\end{lstlisting}
+
+\subsection*{Представить результаты в виде списочных ячеек}
+
+1. ((ar1 ar2) (ar3 ar4))
+\img{45mm}{r_7}{}
+
+\newpage
+
+2. ((ar1) (ar2))
+\img{50mm}{r_8}{}
+
+3. (((ar1)))
+\img{70mm}{r_9}{}
