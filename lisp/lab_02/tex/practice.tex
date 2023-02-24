@@ -1,0 +1,198 @@
+\chapter{Практические задания}
+
+\section{Составить диаграмму вычисления следующих выражений}
+
+1. \text{(equal 3 (abs -3))}
+
+\img{78mm}{s_1}{}
+
+2. \text{(equal (+ 1 2) 3)}
+
+\img{78mm}{s_2}{}
+
+3. \text{(equal (*4 7) 21)}
+
+\img{78mm}{s_3}{}
+
+4. \text{(equal (* 2 3) (+ 7 2))}
+
+\img{112mm}{s_4}{}
+
+5. \text{(equal (- 7 3) (* 3 2))}
+
+\img{95mm}{s_5}{}
+
+6. \text{(equal (abs (- 2 4)) 3)}
+
+\img{95mm}{s_6}{}
+
+\newpage
+
+\section{Написать функцию, вычисляющую гипотенузу прямоугольного треугольника по заданным катетам и составить диаграмму ее вычисления}
+
+\begin{lstlisting}
+    (
+    defun
+        hypotenuse
+        (a, b)
+        (sqrt (+ (* a a) (* b b) ) )
+    )
+
+    (hypotenuse 3 4)        ; 5
+\end{lstlisting}
+
+
+\img{140mm}{h_1}{}
+
+\newpage
+
+
+\section{Каковы результаты вычисления следующих выражений?}
+
+\begin{lstlisting}
+     (list 'a c)    =>    ERROR: Variable C is unbound.
+
+     Можно предложить два решения: 
+     1. (list 'a 'c)                ; сделать c символом
+     2. (let ((c 3)) (list 'a c))   ; задать c некоторое значение
+\end{lstlisting}
+
+\begin{lstlisting}
+     (cons 'a (b c))    =>    ERROR: Variable C is unbound.
+     (cons 'a (b 'c))   =>    ERROR: Function 'B' undefined.
+
+     Можно предложить два решения: 
+     1. (cons 'a '(b c))                ; сделать (b c) списком из двух                                  символов
+     2. (defun b (c) (+ c 3))           ; задать функцию b  
+        (let ((c 5)) (cons 'a (b c)))   ; задать c некоторое значение
+\end{lstlisting}
+
+\begin{lstlisting}
+     (cons 'a '(b c))      =>    (A B C)
+\end{lstlisting}
+
+\begin{lstlisting}
+     (caddr (1 2 3 4 5))   =>   ERROR: Bad function designator `1'
+
+     Решение: 
+     1. (caddr '(1 2 3 4 5))   ; заблокировать вычисление (1 2 3 4 5)
+\end{lstlisting}
+
+\begin{lstlisting}
+     (cons 'a 'b 'c)    =>   ERROR: too many arguments
+
+     Можно предложить два решения: 
+     1. (cons 'a '(b c))      ; передать вторым аргументом список
+     2. (list 'a 'b 'c)       ; использовать функцию list
+\end{lstlisting}
+
+\begin{lstlisting}
+     (list 'a (b c))    =>   ERROR: Variable C is unbound.
+
+     Можно предложить два решения: 
+     1. (list 'a '(b c))               ; заблокировать вычисление 
+                                         второго аргумента
+     2. (defun b (c) (cons c Nil))     ; определить функцию b
+        (let ((c 5)) (list 'a (b c)))  ; определить аргумент c
+\end{lstlisting}
+
+
+\begin{lstlisting}
+     (list a '(b c))    =>   ERROR: Variable A is unbound.
+
+     Можно предложить два решения: 
+     1. (list 'a '(b c))               ; заблокировать вычисление 
+                                         первого аргумента
+     2. (let ((a 5)) (list a '(b c)))  ; определить аргумент a
+\end{lstlisting}
+
+\begin{lstlisting}
+     (list (+ 1 '(length '(1 2 3))))    =>   ERROR: Not a number!
+
+     Решение: 
+     1. (list (+ 1 (length '(1 2 3)))) ; не блокировать вычисление 
+                                         второго аргумента
+\end{lstlisting}
+
+
+
+
+\section{Написать функцию longer-then от двух списков аргументов, которая возвращает T, если первый аргумент имеет большую длину}
+
+\begin{lstlisting}
+     (
+     defun
+         longer_then
+         (list_1 list_2)
+         (> (length list_1) (length list_2))
+     )
+
+     (LONGER_THEN '(1 2 3) '(2 3))       ; T
+     (LONGER_THEN '(1 2 3) '(2 3))       ; NIL
+     (LONGER_THEN '(2 3 1) '(1 2 3))     ; NIL
+\end{lstlisting}
+
+
+\section{Каковы результаты вычисления следующих выражений?}
+
+\begin{lstlisting}
+     (cons 3 (list 5 6))                     ; (3 5 6)
+     (cons 3 '(list 5 6))                    ; (3 list 5 6)
+     (list 3 'from 9 'lives (- 9 3))         ; (3 from 9 lives 6)
+     (+ (length for 2 two))(car '(21 22 23)) ; error
+     (cdr '(cons is short for ans))          ; (is short for ans)
+     (car (list one two))                    ; error
+     (car (list 'one 'two))                  ; one
+\end{lstlisting}
+
+\section{Дана функция. Какие будут результаты вычисления выражений}
+
+\begin{lstlisting}
+     (
+     defun
+        f1
+        (x)
+        (list (second x)(first x))
+     )
+\end{lstlisting}
+
+\begin{lstlisting}
+     (f1 (one two))                ; error
+     (f1 (last one two))           ; error
+     (f1 free)                     ; error
+     (f1 one 'two)                 ; error
+\end{lstlisting}
+
+\section{Написать функцию, которая переводит температуру в системе Фаренгейта в температуру по Цельсию}
+
+\begin{lstlisting}
+     (
+     defun
+        f_to_c
+        (t)
+        (* (/ 5 9) (- t 32.0))
+     )
+     (f_to_c 451) ; 232.777
+\end{lstlisting}
+
+\begin{lstlisting}
+     (
+     defun
+        c_to_f
+        (t)
+        (+ (* (/ 9 5) t) 32.0)
+     )
+     (c_to_f 232.777) ; 450.999
+\end{lstlisting}
+
+\section{Что получится при вычислении каждого из выражений}
+
+\begin{lstlisting}
+     (list 'cons t NIL)                     ; (cons t ())
+     (eval (list 'cons t NIL))              ; (t)
+     (eval (eval (list 'cons t NIL)))       ; error
+     (eval NIL)                             ; NIL
+     (apply #cons ''(t nill)))              ; error
+     (list 'eval NIL)                       ; (eval NIL)
+     (eval (list 'eval NIL))                ; NIL
+\end{lstlisting}
