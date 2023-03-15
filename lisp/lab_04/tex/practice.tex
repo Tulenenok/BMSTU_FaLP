@@ -1,0 +1,335 @@
+\chapter{Практические задания}
+
+\section{Чем принципиально отличаются функции cons, list, append?}
+
+Отличия:
+\begin{itemize}
+    \item cons является базисной, list и append -- нет;
+    \item  list и append принимают произвольное количество аргументов (причем аргументами append могут быть только списки), cons -- фиксированное (два);
+    \item  cons создает точечную пару или список (в зависимости от второго аргумента), list и append -- список;
+    \item cons и list создают новые списковые ячейки (все), а append имеет общие списковые ячейки с последним списком.
+    \item list и append определяются с помощью cons.
+\end{itemize}
+
+\begin{lstlisting}
+     (setf lst1 '(a b c)) 
+     (setf lst2 '(d e))
+
+     (cons lst1 lst2)            ; ((a b c) d e)  
+     (list lst1 lst2)            ; ((a b c) (d e))
+     (append lst1 lst2)          ; (a b c d e)  
+\end{lstlisting}
+
+\section{Каковы результаты вычисления следующих выражений, и почему?}
+
+Функция reverse переворачивает свой список-аргумент, т.е. меняет порядок ; его элементов  верхнего уровня на противоположный.
+
+\begin{lstlisting}
+     (reverse '(a b c))             ; (c b a)
+     (reverse '(a b (c (d))))       ; ((c (d)) b a)
+     (reverse '(a))                 ; (a)
+     (reverse ())                   ; ()
+     (reverse '((a b c)))           ; (a b c)
+\end{lstlisting}
+
+Функция last возвращает последнюю cons-ячейку в списке.
+
+\begin{lstlisting}
+     (last '(a b c))                ; (c)
+     (last '(a))                    ; (a)
+     (last '((a b c)))              ; ((a b c))
+     (last '(a b (c)))              ; ((c))
+     (last ())                      ; ()
+\end{lstlisting}
+
+\section{Написать, по крайней мере, два варианта функции, которая возвращает последний элемент своего списка-аргумента}
+
+\begin{lstlisting}
+     (
+        defun
+        my_last1
+        (l)
+        (cond ((null l) nil)
+              ((null (cdr l)) (car l))
+              (t (my_last (cdr l)))
+        )
+     )
+
+     (my_last1 a)               ; (3)
+\end{lstlisting}
+
+\begin{lstlisting}
+     (
+        defun
+        my_last2
+        (l)
+        (cons (car (reverse l) nil))
+     )
+
+     (my_last2 a)               ; (3)
+\end{lstlisting}
+
+\section{Написать, по крайней мере, два варианта функции, которая возвращает свой список аргумент без последнего элемента}
+
+\begin{lstlisting}
+     (
+        defun
+        without_last1
+        (l)
+        (
+        if 
+            (null (cdr l))
+            nil
+            (cons (car l) (without_last1 (cdr l)))
+        )
+     )
+
+     (WITHOUT_LAST1 a)          ; (1 2)
+\end{lstlisting}
+
+\begin{lstlisting}
+     (
+        defun
+        without_last2
+        (l)
+        (reverse (cdr (reverse l)))
+     )
+
+     (WITHOUT_LAST2 a)         ; (1 2)
+\end{lstlisting}
+
+\section{Напишите функцию swap-first-last, которая переставляет в списке-аргументе первый и последний элементы}
+
+\begin{lstlisting}
+     (
+        defun 
+        swap-first-last 
+        (a) 
+        (
+            append 
+            (cons(car (reverse (cdr a))) nil)
+            (reverse (cdr (reverse (cdr a))))
+            (cons (car a) nil)
+        )
+     )
+
+     (SWAP-FIRST-LAST '(1 2 3 4 5))         ; (5 2 3 4 1)
+     (SWAP-FIRST-LAST '((1 2) 3 4 (4) 5))   ; (5 3 4 (4) (1 2))
+\end{lstlisting}
+
+\section{Написать простой вариант игры в кости, в котором бросаются две
+правильные кости. Если сумма выпавших очков равна 7 или 11 —
+выигрыш, если выпало (1,1) или (6,6) — игрок имеет право снова
+бросить кости, во всех остальных случаях ход переходит ко второму
+игроку, но запоминается сумма выпавших очков. Если второй игрок не
+выигрывает абсолютно, то выигрывает тот игрок, у которого больше
+очков. Результат игры и значения выпавших костей выводить на экран с
+помощью функции print}
+
+\begin{lstlisting}
+    (
+        defun 
+        roll_dice 
+        () 
+        (+ (random 6) 1)
+    )
+    
+    (
+        defun 
+        check_continue_game 
+        (result) 
+        (not (or (= result 7) (= result 11)))
+    )
+    
+    (
+        defun 
+        make_a_move 
+        (player_i) 
+        (
+            let (
+                (dice1 (roll_dice)) 
+                (dice2 (roll_dice))
+            )
+    	(
+            if (
+                and 
+                    (print (list 'Игрок player_i 'бросает 'кости)) 
+                    (= dice1 dice2) 
+                    (or (= dice1 1) (= dice1 6))
+                )
+    		(
+                and 
+    			(print (list 'Выпало  dice1 dice2  'Повторный 'бросок)) 
+    			(make_a_move player_i)
+    		)
+    		(
+                and 
+    			(print (list 'Выпало dice1 dice2))
+    			(+ dice1 dice2)
+    		)
+    	)
+        )
+    )
+    (
+        defun 
+        compare_results 
+        (res1 res2) 
+        (
+            if 
+            (check_continue_game res2)
+    	  (
+            and
+    		  (print (list 'Сравнение 'по 'очкам))
+    		  (print (list 'Игрок 1 'набрал res1))
+    		  (print (list 'Игрок 2 'набрал res2))
+    		  (cond 
+    			((< res1 res2) (and (print (list 'Игрок 2 'выиграл 'по 'очкам)) 2))
+    			((> res1 res2) (and (print (list 'Игрок 1 'выиграл 'по 'очкам)) 1))
+    			((and (print '(Ничья)) 0))
+    		  )
+    	  )	
+    	  (
+            and 
+                (print (list 'Игрок 2 'набрал res2 'очков 'и 'выиграл 'абсолютно)) 2
+            )
+        )
+    )
+    
+    (
+        defun 
+        play_game 
+        () 
+        (
+            let (
+                (res1 (make_a_move 1))
+            )
+            (if (check_continue_game res1)
+                (compare_results res1 (make_a_move 2))
+                (and (print (list 'Игрок 1 'набрал res1 'очков 'и 'выиграл 'абсолютно)) 1)
+            )
+        )
+    )
+
+
+    ; (ИГРОК 1 БРОСАЕТ КОСТИ) 
+    ; (ВЫПАЛО 1 5) 
+    ; (ИГРОК 2 БРОСАЕТ КОСТИ) 
+    ; (ВЫПАЛО 6 1) 
+    ; (ИГРОК 2 НАБРАЛ 7 ОЧКОВ И ВЫИГРАЛ АБСОЛЮТНО) 
+\end{lstlisting}
+
+\section{Написать функцию, которая по своему списку-аргументу lst определяет является ли он палиндромом (то есть равны ли lst и (reverse lst))}
+
+\begin{lstlisting}
+    (
+        defun
+        is_palindrom
+        (l)
+        (equal l (reverse l))
+    )
+
+    (IS_PALINDROM '(1 2 3 4 5))     ; NIL
+    (IS_PALINDROM '(1 2 3 2 1))     ; T
+    (IS_PALINDROM '((1 2) 3 (2 1))) ; NIL
+    (IS_PALINDROM '((1 2) 3 (1 2))) ; T
+\end{lstlisting}
+
+
+\section{Напишите свои необходимые функции, которые обрабатывают таблицу из 4-х точечных пар: (страна . столица), и возвращают по стране - столицу, а по столице — страну}
+
+\begin{lstlisting}
+    (
+    defvar country_table
+    '(
+       (Россия . Москва)
+       (Англия . Лондон)
+       (Италия . Рим)
+       (Испания . Мадрид)
+    )
+    )
+    
+    (
+        defun
+        get_country_by_capital
+        (capital table)
+        (
+            cond 
+                ((null table) "Не найдено")
+                ((equal (cdr (car table)) capital) (car (car table)))
+                (t (get_country_by_capital capital (cdr table)))
+        )
+    )
+    
+    (
+        defun
+        get_capital_by_country
+        (country table)
+        (
+            cond 
+                ((null table) "Не найдено")
+                ((equal (car (car table)) country) (cdr (car table)))
+                (t (get_capital_by_country country (cdr table)))
+        )
+    )
+    
+    (
+        defun
+        get_by_value
+        (value table)
+        (
+            if
+            (equal "Не найдено" (get_country_by_capital value table))
+            (get_capital_by_country value table)
+            (get_country_by_capital value table)
+        )
+    )
+    
+    (print (get_country_by_capital 'ФФФФ country_table))
+    (print (get_country_by_capital 'МОСКВА country_table))
+    (print (get_country_by_capital 'ЛОНДОН country_table))
+    (print (get_country_by_capital 'МАДРИД country_table))
+    
+    (print (get_capital_by_country 'ФФФФ country_table))
+    (print (get_capital_by_country 'РОССИЯ country_table))
+    (print (get_capital_by_country 'АНГЛИЯ country_table))
+    (print (get_capital_by_country 'ИСПАНИЯ country_table))
+    
+    (print (get_by_value 'FFF country_table))
+    (print (get_by_value 'Рим country_table))
+    (print (get_by_value 'Италия country_table))
+\end{lstlisting}
+
+\section{Напишите функцию, которая умножает на заданное число-аргумент
+первый числовой элемент списка из заданного 3-х элементного списка аргумента, когда a) все элементы списка --- числа, b) элементы списка -- любые объекты.}
+
+\begin{lstlisting}
+    (
+        defun
+        simple_option
+        (x l)
+        (
+            cons (* (car l) x) (cdr l)
+        )
+    )
+    
+    (print (simple_option 5 '(1 2 3 4 5)))                 ; (5 2 3 4 5) 
+
+    
+    (
+        defun
+        difficult_option
+        (x l)
+        (
+            cond 
+            ((null l) "Невозможно умножить (нет числовых значений)")
+            ((numberp (car l)) (cons (* (car l) x) (cdr l)))
+            (t (cons (car l) (difficult_option x (cdr l))))
+        )
+    )
+    
+    (difficult_option 5 '(1 2 3 4 5))              ; (5 2 3 4 5) 
+    (difficult_option 5 '((1) 2 3 4 5))            ; ((1) 10 3 4 5) 
+    (difficult_option 5 '("1" (2 3 4) 5))          ; ("1" (2 3 4) 25) 
+    (difficult_option 5 '("1" (2 3 4) (5)))        ; "Невозможно умножить (нет числовых значений)"
+
+\end{lstlisting}
