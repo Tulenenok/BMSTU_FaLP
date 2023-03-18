@@ -1,0 +1,186 @@
+\chapter{Практические задания}
+
+\section{Напишите функцию, которая уменьшает на 10 все числа из списка-аргумента этой функции, проходя по верхнему уровню списковых ячеек}
+
+\begin{lstlisting}
+    (
+    defun reduce_it_by_10 (lst)
+        (mapcar (lambda (x) (if (numberp x) (- x 10) x)) lst)
+    )
+
+    (print (reduce_it_by_10 '()))                   ; NIL
+    (print (reduce_it_by_10 '(1 2 3 4 5)))          ; (-9 -8 -7 -6 -5)
+    (print (reduce_it_by_10 '(1 (2) 3 "4" 5)))      ; (-9 (2) -7 "4" -5)
+\end{lstlisting}
+
+\section{Написать функцию которая получает как аргумент список чисел, а возвращает список квадратов этих чисел в том же порядке}
+
+\begin{lstlisting}
+    (
+    defun squares_of_numbers (lst)
+        (mapcar (lambda (x) (* x x)) lst)
+    )
+
+    (print (squares_of_numbers '()))                ; NIL
+    (print (squares_of_numbers '(1 2 3 4 5)))       ; (1 4 9 16 25) 
+    (print (squares_of_numbers '(-1 -2 -3)))        ; (1 4 9)
+\end{lstlisting}
+
+\section{Напишите функцию, которая умножает на заданное число-аргумент все числа из заданного списка-аргумента, когда все элементы списка --- числа, элементы списка -- любые объекты}
+
+\newpage
+
+\begin{lstlisting}
+    (
+    defun multiply_all_numbers (lst y)
+        (mapcar (lambda (x) (if (numberp x) (* x y) x)) lst)
+    )
+    
+    (multiply_all_numbers '() 1)                   ; NIL
+    (multiply_all_numbers '(1 2 3 4 5) 5)          ; (5 10 15 20 25)
+    (multiply_all_numbers '(-1 -2 -3) 5)           ; (-5 -10 -15) 
+    (multiply_all_numbers '("1" -2 (-3)) -2)       ; ("1" 4 (-3)) 
+\end{lstlisting}
+
+\section{Написать функцию, которая по своему списку-аргументу lst определяет является ли он палиндромом (то есть равны ли lst и (reverse lst)), для одноуровнего смешанного списка}
+
+\begin{lstlisting}
+    ; Идея функции -- получить список из 1 и 0, проверяя 
+    ; равны ли элементы списка и перевернутого списка
+    ; Потом перемножить эти значения -- получили 1 значит палиндром, 
+    ; иначе нет
+
+    (
+        defun is_palindrome_content (lst)
+            (apply 
+                '* 
+                (mapcar 
+                    (lambda (x y) (if (equal x y) 1 0)) 
+                    lst 
+                    (reverse lst)
+                )
+            )
+    )
+    
+    (
+        defun is_palindrome (lst)
+            (if 
+                (= (is_palindrome_content lst) 1) 
+                "Да, это палиндром" 
+                "Нет, не палиндром"
+            )
+    )
+    
+    (print (is_palindrome '()))                   ; Да, это палиндром
+    (print (is_palindrome '(1 2 3 4 5)))          ; Нет, не палиндром
+    (print (is_palindrome '(-1 -2 -3)))           ; Нет, не палиндром
+    (print (is_palindrome '(1 2 1 2 1 1)))        ; Нет, не палиндром
+    (print (is_palindrome '(1 2 2 3 2 2 1)))      ; Да, это палиндром
+    (print (is_palindrome '(1 (2 1) (2 1) 1)))    ; Да, это палиндром
+\end{lstlisting}
+
+\section{Используя функционалы, написать предикат set-equal, который возвращает t, если два его множества-аргумента (одноуровневые списки) содержат одни и те же элементы, порядок которых не имеет значения}
+
+\begin{lstlisting}
+    (
+        defun is_first_equal_second (lst1 lst2)
+            (apply 
+                '* 
+                (mapcar 
+                    (
+                        lambda (x) 
+                        (apply 
+                            '+ 
+                            (mapcar 
+                                (lambda (y) (if (equal x y) 1 0)) 
+                                lst2
+                            )
+                        )
+                    ) 
+                    lst1
+                )
+            )
+    )
+
+    (
+        defun set_equal (lst1 lst2)
+            (if 
+                (= 1 
+                   (is_first_equal_second lst1 lst2)      
+                   (is_first_equal_second lst2 lst1)
+                ) 
+                "Эквивалентны" 
+                "Не эквивалентны"
+            )
+    )
+    
+    
+    (print (set_equal '(1 2 3) '(3 2 1)))             ; Эквивалентны
+    (print (set_equal '(1 2 0 4 5) '(1 2 3 4 5 0)))   ; Не эквивалентны
+    (print (set_equal '(1 3 2 0 4 5) '(1 2 3 4 5 0))) ; Эквивалентны
+\end{lstlisting}
+
+\section{Напишите функцию, select-between, которая из списка-аргумента, содержащего только числа, выбирает только те, которые расположены между двумя указанными числами --- границами-аргументами и возвращает их в виде списка}
+
+\begin{lstlisting}
+    ; Обрезать слева, перевернуть, снова обрезать слева и перевернуть
+    (
+    defun select_between (lst start end)
+        (reverse
+            (apply
+                'append
+                (maplist
+                    (lambda (part_lst) 
+                        (if 
+                            (= (car part_lst) end) 
+                            part_lst
+                        )
+                    ) 
+                    (reverse
+                        (apply
+                            'append
+                            (maplist 
+                                (lambda (part_lst) 
+                                    (if 
+                                        (= (car part_lst) start) 
+                                        part_lst
+                                    )
+                                ) 
+                                lst
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+
+    (print (select_between '(1 2 3 4) 1 3))            ; (1 2 3) 
+    (print (select_between '(1 2 3 4) 2 3))            ; (2 3) 
+    (print (select_between '(1 2 3 4) 2 4))            ; (2 3 4)
+    (sort  (select_between '(5 2 1 10 3 4 6) 2 4) #'<)  ; (1 2 3 4 10) 
+\end{lstlisting}
+
+\section{Написать функцию, вычисляющую декартово произведение двух своих списков-аргументов (А х В это множество всевозможных пар (a b), где а принадлежит А, принадлежит В)}
+
+\begin{lstlisting}
+    (
+    defun cartesian_product (lst1 lst2)
+        (apply
+            'append
+            (mapcar 
+                (lambda (a) (mapcar (lambda (b) (list a b)) lst2)) 
+                lst1
+            )
+        )
+    )
+    
+    (cartesian_product '() '())         ; ()
+    (cartesian_product '(1) '(3))       ; ((1 3)) 
+    (cartesian_product '(1 2) '(3 4))   ; ((1 3) (1 4) (2 3) (2 4)) 
+    (cartesian_product '(1 2) '(3))     ; ((1 3) (2 3)) 
+    (cartesian_product '(2) '(3 4))     ; ((2 3) (2 4))  
+    (cartesian_product '() '(3 4))      ; ()
+\end{lstlisting}
+
