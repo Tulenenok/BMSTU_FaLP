@@ -1,0 +1,11 @@
+(defun rec-add-inner (lst sum)
+	(cond 
+		((null lst) sum)
+		((numberp (car lst)) (rec-add-inner (cdr lst) (+ sum (car lst))))
+		(t (rec-add-inner (cdr lst) sum))
+	)
+)
+(defun rec-add (lst)
+	(rec-add-inner lst 0)
+)
+(print (rec-add '(1 a 2 -1/2 "abc")))
