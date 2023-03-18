@@ -11,3 +11,9 @@
 (print (squares_of_numbers '()))                   ; NIL
 (print (squares_of_numbers '(1 2 3 4 5)))          ; (1 4 9 16 25) 
 (print (squares_of_numbers '(-1 -2 -3)))           ; (1 4 9)
+
+
+; Для Ардуино
+; (str (format nil "~a" (squares_of_numbers '())))                   ; NIL
+; (str (format nil "~a" (squares_of_numbers '(1 2 3 4 5))))          ; (1 4 9 16 25) 
+; (str (format nil "~a" (squares_of_numbers '(-1 -2 -3))))           ; (1 4 9)

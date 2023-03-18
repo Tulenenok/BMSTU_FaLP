@@ -13,3 +13,8 @@
 (print (multiply_all_numbers '(1 2 3 4 5) 5))          ; (5 10 15 20 25)
 (print (multiply_all_numbers '(-1 -2 -3) 5))           ; (-5 -10 -15) 
 (print (multiply_all_numbers '("1" -2 (-3)) -2))       ; ("1" 4 (-3)) 
+
+; Для Ардуино
+; (str (format nil "~a" (multiply_all_numbers '() 1)))                   ; NIL
+; (str (format nil "~a" (multiply_all_numbers '(-1 -2 -3) 5)))           ; (-5 -10 -15) 
+; (str (format nil "~a" (multiply_all_numbers '("1" -2 (-3)) -2)))       ; ("1" 4 (-3)) 
