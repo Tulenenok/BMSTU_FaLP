@@ -1,0 +1,23 @@
+% \documentclass[a4paper,14pt]{extreport}
+\documentclass{bmstu}
+
+\bibliography{biblio}
+\include{preamble.inc}
+
+% Настройки листингов.
+\ifPDFTeX
+\include{listings.inc}
+\else
+\usepackage{local-minted}
+\fi
+
+% Полезные макросы листингов.
+\begin{document}
+
+\include{title}
+
+\setcounter{page}{2}
+\include{theory}
+\include{practice}
+
+\end{document}

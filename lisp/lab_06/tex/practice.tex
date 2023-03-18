@@ -1,0 +1,181 @@
+\chapter{Практические задания}
+
+\section{Написать хвостовую рекурсивную функцию my-reverse, которая развернет верхний уровень своего списка-аргумента lst}
+
+\begin{lstlisting}
+    ; С помощью append
+    (
+        defun my_reverse1 (lst)
+            (if
+                (null lst) 
+                nil
+                (append (my_reverse1 (cdr lst)) (list (car lst)))
+            )
+    )
+    
+    (print (my_reverse1 '()))               ; NIL
+    (print (my_reverse1 '(1 2 3 4 5)))      ; (5 4 3 2 1)
+    (print (my_reverse1 '(1 (2 3) 4)))      ; (4 (2 3) 1) 
+    
+    
+    ; Без append
+    (
+        defun my_reverse2 (lst &optional (result ()))
+            (if
+                (null lst)
+                result
+                (my_reverse2 (cdr lst) (cons (car lst) result))
+            )
+    )
+    
+    (print (my_reverse2 '()))               ; NIL
+    (print (my_reverse2 '(1 2 3 4 5)))      ; (5 4 3 2 1)
+    (print (my_reverse2 '(1 (2 3) 4)))      ; (4 (2 3) 1) 
+\end{lstlisting}
+
+\section{Написать функцию, которая возвращает первый элемент списка - аргумента, который сам является непустым списком}
+
+\begin{lstlisting}
+    (
+        defun return_first_list (lst)
+            (cond
+                (
+                    (null lst)
+                    nil
+                )
+                (
+                    (and (not (atom (car lst))) (not (null (car lst))))  
+                    (car lst)
+                )
+                (
+                    t 
+                    (return_first_list (cdr lst))
+                )
+            )
+    )
+    
+    (print (return_first_list '(1 ())))                 ; nil
+    (print (return_first_list '(1 2 3 4 5)))            ; nil
+    (print (return_first_list '((1 2) 3 4)))            ; (1 2)
+    (print (return_first_list '(1 2 (3 4))))            ; (3 4)
+    (print (return_first_list '(1 (2) (3 4))))          ; (2)
+    (print (return_first_list '(1 () (3 4))))           ; (3 4)
+\end{lstlisting}
+
+\section{Напишите рекурсивную функцию, которая умножает на заданное число-аргумент все числа из заданного списка-аргумента, когда все элементы списка --- числа, элементы списка -- любые объекты}
+
+\begin{lstlisting}
+    ; a
+    (
+        defun a_multiply_all (lst x)
+            (if
+                (null lst)
+                nil
+                (cons (* x (car lst)) (a_multiply_all (cdr lst) x))
+            )
+    )
+    
+    (print (a_multiply_all '() 2))                    ; nil
+    (print (a_multiply_all '(1 2 3 4 5) 2))           ; (2 4 6 8 10) 
+    
+    
+    ; b
+    (
+        defun b_multiply_all (lst x)
+            (cond
+                ((null lst) nil)
+                ((not (numberp (car lst))) (cons (car lst) (b_multiply_all (cdr lst) x)) )
+                (t (cons (* x (car lst)) (b_multiply_all (cdr lst) x)))
+            )
+    )
+    
+    (print (b_multiply_all '() 2))                    ; nil
+    (print (b_multiply_all '(1 2 3 4 5) 2))           ; (2 4 6 8 10) 
+    (print (b_multiply_all '(1 (2) 3 4 5) 2))         ; (2 (2) 6 8 10) 
+    (print (b_multiply_all '(1 (2) 3 "1" 5) 2))       ; (2 (2) 6 "1" 10) 
+\end{lstlisting}
+
+\section{Напишите функцию, select-between, которая из списка-аргумента, содержащего только числа, выбирает только те, которые расположены между двумя указанными границами-аргументами и возвращает их в виде списка}
+
+\begin{lstlisting}
+    (
+        defun get_numbers (lst start end result flag)
+            (cond
+                ((null lst) nil)
+                ((= start (car lst)) (cons (car lst) (get_numbers (cdr lst) start end result 1))) 
+                ((= end (car lst)) (cons (car lst) (get_numbers (cdr lst) start end result 0))) 
+                ((= 1 flag) (cons (car lst) (get_numbers (cdr lst) start end result 1)))
+                ((= 0 flag) (get_numbers (cdr lst) start end result 0))
+            )
+    )
+    
+    (
+        defun select_between (lst start end)
+            (get_numbers lst start end () 0)
+    )
+    
+    ; Сортировка
+    (
+        defun put_elem_in_result (x result)
+            (cond
+                ((null result) (cons x result))
+                ((<= x (car result)) (cons x result))
+                (t (cons (car result) (put_elem_in_result x (cdr result))))
+            )
+    )
+    
+    (
+        defun my_sort (lst &optional (result ()))
+            (if
+                (null lst)
+                result
+                (my_sort (cdr lst) (put_elem_in_result (car lst) result))
+            )
+    )
+    
+    ; (print (my_sort '(5 4 3 2 1)))       ; (1 2 3 4 5)
+    ; (print (my_sort '(5 14 3 12 1)))     ; (1 3 5 12 14) 
+    
+    (select_between '(1 2 3 4 5 6) 1 6)               ; (1 2 3 4 5 6)
+    (select_between '(1 2 3 4 5 6) 2 4)               ; (2 3 4) 
+    (select_between '(10 2 5 4 1 9) 2 1)              ; (2 5 4 1)  
+    
+    (my_sort (select_between '(10 2 5 4 1 9) 2 1))    ; (2 5 4 1)  
+    (my_sort (select_between '(10 23 -5 4 1 9) -5 9)) ; (-5 1 4 9)   
+\end{lstlisting}
+
+\section{Написать рекурсивную версию (с именем rec-add) вычисления суммы чисел заданного списка одноуровнего смешанного, структурированного}
+
+\begin{lstlisting}
+    (
+        defun a_rec_add (lst &optional (result 0))
+            (cond
+                ((null lst) result)
+                ((numberp (car lst)) (a_rec_add (cdr lst) (+ result (car lst))))
+                (t (a_rec_add (cdr lst) result))
+            )
+    )
+    
+    (print (a_rec_add '()))               ; 0
+    (print (a_rec_add '(1 2 3 4 5)))      ; 15
+    (print (a_rec_add '(1 (2) 3 4 5)))    ; 13
+    
+    
+    (
+        defun b_rec_add (lst &optional (result 0))
+            (cond
+                ((null lst) result)
+                ((numberp (car lst)) (b_rec_add (cdr lst) (+ result (car lst))))
+                ((listp (car lst)) (+ (b_rec_add (car lst) 0) (b_rec_add (cdr lst) result)))
+                (t (a_rec_add (cdr lst) result))
+            )
+    )
+    
+    (print (b_rec_add '()))                    ; 0
+    (print (b_rec_add '(1 2 3 4 5)))           ; 15
+    (print (b_rec_add '(1 (2) 3 4 5)))         ; 16
+    (print (b_rec_add '(1 (4) 3 4 5)))         ; 18
+    (print (b_rec_add '(1 (4) 3 "4" 5)))       ; 14
+    (print (b_rec_add '(1 (4 3) 3)))           ; 11
+    (print (b_rec_add '(1 (4 (3 5)) 3)))       ; 16
+\end{lstlisting}
