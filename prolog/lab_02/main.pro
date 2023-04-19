@@ -104,13 +104,12 @@ goal
 
         own(rich, Ownership).
 
-        Если вы получили такой ответ, то ок
-
-        Ownership=building(100,address("kop","leet",2,53))
-        Ownership=area(10,500)
-        Ownership=water_transport(1,"green")
-        Ownership=car(5,"mark1","red")
-        4 Solutions
+        Если вы получили такой ответ, то ок:
+            Ownership=building(100,address("kop","leet",2,53))
+            Ownership=area(10,500)
+            Ownership=water_transport(1,"green")
+            Ownership=car(5,"mark1","red")
+            4 Solutions
     */
 
     % own(rich, Ownership).
@@ -124,13 +123,12 @@ goal
 
         get_price_ownership_use_surname(rich, Ownership, _).
 
-        Получили названия 
-        
-        Ownership=building
-        Ownership=area
-        Ownership=water_transport
-        Ownership=car
-        4 Solutions
+        Результат:
+            Ownership=building
+            Ownership=area
+            Ownership=water_transport
+            Ownership=car
+            4 Solutions
     */
 
     % get_price_ownership_use_surname(rich, Ownership, _).
@@ -140,11 +138,10 @@ goal
 
         get_price_ownership_use_surname(Surname, car, _).
 
-        Получили
-
-        Surname=rich
-        Surname=middle
-        2 Solutions
+        Результат:
+            Surname=rich
+            Surname=middle
+            2 Solutions
     */
 
     % get_price_ownership_use_surname(Surname, car, _).
@@ -158,13 +155,25 @@ goal
 
         get_price_ownership_use_surname(rich, Ownership, Price).
 
-        Получили названия 
-        
-        Ownership=building
-        Ownership=area
-        Ownership=water_transport
-        Ownership=car
-        4 Solutions
+        Результат:
+            Ownership=building, Price=100
+            Ownership=area, Price=10
+            Ownership=water_transport, Price=1
+            Ownership=car, Price=5
+            4 Solutions
     */
 
-    get_price_ownership_use_surname(rich, Ownership, Price).
+    % get_price_ownership_use_surname(rich, Ownership, Price).
+
+    /*
+        В рамках этого задания получим также все фамилии владельцов зданий
+
+        get_price_ownership_use_surname(Surname, building, Price).
+
+        Результат:
+            Surname=rich
+            Surname=middle
+            2 Solutions
+    */
+
+    get_price_ownership_use_surname(Surname, building, Price).
