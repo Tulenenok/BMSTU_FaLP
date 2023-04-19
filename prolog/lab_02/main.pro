@@ -48,7 +48,7 @@ predicates
 
     get_price_ownership_use_surname(surname, symbol, price).
     sum_cost_inner(surname, symbol, price).
-    sum_cost(surname, price).
+    get_sum_cost(surname, price).
 
 clauses 
     /*
@@ -95,6 +95,29 @@ clauses
 
     get_price_ownership_use_surname(Surname_, car, Price_) :-
         own(Surname_, car(Price_, _, _)).
+
+
+    % Описываем правила для поиска общей суммы 
+    sum_cost_inner(Surname_, building, Price_) :-
+        own(Surname_, building(Price_, _))       ,                  !.
+
+    sum_cost_inner(Surname_, area, Price_) :-
+        own(Surname_, area(Price_, _))           ,                  !.
+
+    sum_cost_inner(Surname_, water_transport, Price_) :-
+        own(Surname_, water_transport(Price_, _)),                  !.
+
+    sum_cost_inner(Surname_, car, Price_) :-
+        own(Surname_, car(Price_, _, _))         ,                  !.
+
+    sum_cost_inner(_, _, 0).
+
+    get_sum_cost(Surname_, Price_) :-
+        sum_cost_inner(Surname_, building, Price1_)             , 
+        sum_cost_inner(Surname_, area, Price2_)                 , 
+        sum_cost_inner(Surname_, water_transport, Price3_)      , 
+        sum_cost_inner(Surname_, car, Price4_)                  , 
+        Price = Price1_ + Price2_ + Price3_ + Price4_.
 
 
 goal 
@@ -149,7 +172,7 @@ goal
 
 
 
-     /*
+    /*
         2 задание: название и стоимость всех объектов собственности по фамилии владельца
         Для этого будем использовать предикат get_name_price_ownership_use_surname
 
@@ -171,9 +194,21 @@ goal
         get_price_ownership_use_surname(Surname, building, Price).
 
         Результат:
-            Surname=rich
-            Surname=middle
+            Surname=rich, Price=100
+            Surname=middle, Price=90
             2 Solutions
     */
 
-    get_price_ownership_use_surname(Surname, building, Price).
+    % get_price_ownership_use_surname(Surname, building, Price).
+
+
+
+
+
+    /*
+        3 задание: суммарная стоимость всех объектов собственности по фамилии
+
+
+    */
+
+    get_sum_cost(middle, Price).
