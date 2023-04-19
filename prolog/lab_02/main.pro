@@ -110,9 +110,38 @@ goal
         4 Solutions
     */
 
+    % own(rich, Ownership).
+
+
+
+
     /*
-        1, 2 задание: стоимость всех объектов собственности по фамилии владельца
+        1, 2 задание: название и стоимость всех объектов собственности по фамилии владельца
         Для этого будем использовать предикат get_name_price_ownership_use_surname
+
+        get_price_ownership_use_surname(rich, Ownership, _).
+
+        Получили названия 
+        
+        Ownership=building
+        Ownership=area
+        Ownership=water_transport
+        Ownership=car
+        4 Solutions
     */
 
-    get_price_ownership_use_surname(rich, Ownership, _).
+    % get_price_ownership_use_surname(rich, Ownership, _).
+
+    /*
+        В рамках этого задания получим также все фамилии владельцов машин
+
+        get_price_ownership_use_surname(Surname, car, _).
+
+        Получили
+
+        Surname=rich
+        Surname=middle
+        2 Solutions
+    */
+
+    get_price_ownership_use_surname(Surname, car, _).
