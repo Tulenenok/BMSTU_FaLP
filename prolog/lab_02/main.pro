@@ -117,7 +117,7 @@ clauses
         sum_cost_inner(Surname_, area, Price2_)                 , 
         sum_cost_inner(Surname_, water_transport, Price3_)      , 
         sum_cost_inner(Surname_, car, Price4_)                  , 
-        Price = Price1_ + Price2_ + Price3_ + Price4_.
+        Price_ = Price1_ + Price2_ + Price3_ + Price4_.
 
 
 goal 
@@ -208,7 +208,14 @@ goal
     /*
         3 задание: суммарная стоимость всех объектов собственности по фамилии
 
+        get_sum_cost(middle, Price).
 
+        Результат:
+            Price=93
+            1 Solution
     */
 
-    get_sum_cost(middle, Price).
+
+    % get_sum_cost(middle, Price).
+
+    get_sum_cost(poor, Price).
