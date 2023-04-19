@@ -81,7 +81,7 @@ clauses
     own(rich, car(5, mark1, red)).
 
     own(middle, car(3, mark2, green)).
-    own(middle, building(90, address(moscow, ulk, 2, 32)).)
+    own(middle, building(90, address(moscow, ulk, 2, 32))).
 
     % Описываем правило, как по фамилии владельца найти цену его собственности
     get_price_ownership_use_surname(Surname_, building, Price_) :-
@@ -119,7 +119,7 @@ goal
 
 
     /*
-        1, 2 задание: название и стоимость всех объектов собственности по фамилии владельца
+        1 задание: название всех объектов собственности по фамилии владельца
         Для этого будем использовать предикат get_name_price_ownership_use_surname
 
         get_price_ownership_use_surname(rich, Ownership, _).
@@ -147,4 +147,24 @@ goal
         2 Solutions
     */
 
-    get_price_ownership_use_surname(Surname, car, _).
+    % get_price_ownership_use_surname(Surname, car, _).
+
+
+
+
+     /*
+        2 задание: название и стоимость всех объектов собственности по фамилии владельца
+        Для этого будем использовать предикат get_name_price_ownership_use_surname
+
+        get_price_ownership_use_surname(rich, Ownership, Price).
+
+        Получили названия 
+        
+        Ownership=building
+        Ownership=area
+        Ownership=water_transport
+        Ownership=car
+        4 Solutions
+    */
+
+    get_price_ownership_use_surname(rich, Ownership, Price).
