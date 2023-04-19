@@ -46,7 +46,7 @@ predicates
     % собственность
     own(surname, ownership).
 
-    ownership_name_price(surname, symbol, price).
+    get_price_ownership_use_surname(surname, symbol, price).
     sum_cost_inner(surname, symbol, price).
     sum_cost(surname, price).
 
@@ -80,5 +80,39 @@ clauses
     own(rich, water_transport(1, green)).
     own(rich, car(5, mark1, red)).
 
+    % Описываем правило, как по фамилии владельца найти цену его собственности
+    get_price_ownership_use_surname(Surname_, building, Price_) :-
+        own(Surname_, building(Price_, _)).
+
+    get_price_ownership_use_surname(Surname_, area, Price_) :-
+        own(Surname_, area(Price_, _)).
+
+    get_price_ownership_use_surname(Surname_, water_transport, Price_) :-
+        own(Surname_, water_transport(Price_, _)).
+
+    get_price_ownership_use_surname(Surname_, car, Price_) :-
+        own(Surname_, car(Price_, _, _)).
+
+
 goal 
-    own(rich, Ownership).
+    /* 
+        Тестовый запуск
+        До выполнения задания можно задать такой вопрос 
+
+        own(rich, Ownership).
+
+        Если вы получили такой ответ, то ок
+
+        Ownership=building(100,address("kop","leet",2,53))
+        Ownership=area(10,500)
+        Ownership=water_transport(1,"green")
+        Ownership=car(5,"mark1","red")
+        4 Solutions
+    */
+
+    /*
+        1, 2 задание: стоимость всех объектов собственности по фамилии владельца
+        Для этого будем использовать предикат get_name_price_ownership_use_surname
+    */
+
+    get_price_ownership_use_surname(rich, Ownership, _).
