@@ -80,6 +80,9 @@ clauses
     own(rich, water_transport(1, green)).
     own(rich, car(5, mark1, red)).
 
+    own(middle, car(3, mark2, green)).
+    own(middle, building(90, address(moscow, ulk, 2, 32)).)
+
     % Описываем правило, как по фамилии владельца найти цену его собственности
     get_price_ownership_use_surname(Surname_, building, Price_) :-
         own(Surname_, building(Price_, _)).
