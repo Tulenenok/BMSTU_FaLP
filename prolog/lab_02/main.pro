@@ -99,7 +99,7 @@ clauses
 
     % Описываем правила для поиска общей суммы 
     sum_cost_inner(Surname_, building, Price_) :-
-        own(Surname_, building(Price_, _))       ,                  !.
+        own(Surname_, building(Price_, _))       ,                  !.      % что такое ! описала в конце
 
     sum_cost_inner(Surname_, area, Price_) :-
         own(Surname_, area(Price_, _))           ,                  !.
@@ -204,18 +204,39 @@ goal
 
 
 
-
     /*
         3 задание: суммарная стоимость всех объектов собственности по фамилии
+
+        % get_sum_cost(rich, Price).
+
+        Результат:
+            Price=116
+            1 Solution
 
         get_sum_cost(middle, Price).
 
         Результат:
             Price=93
             1 Solution
+
+        get_sum_cost(poor, Price).
+
+        Результат:
+            Price=0
+            1 Solution
     */
 
-
+    % get_sum_cost(rich, Price).
     % get_sum_cost(middle, Price).
+    % get_sum_cost(poor, Price).
 
-    get_sum_cost(poor, Price).
+
+
+
+
+/*
+    P.S
+    Когда в программе Prolog встречается символ !, происходит обрезание всех альтернативных 
+    вариантов поиска решения, которые находятся за этим символом. Иными словами, Prolog принимает 
+    первое найденное решение и не продолжает поиск других вариантов.
+*/
