@@ -28,6 +28,16 @@ CLAUSES
     parent(father_a, mother_of_father_a, w).
     parent(father_a, father_of_father_a, m).
 
+    parent(father_of_mother_a, mother_of_father_of_mother_a, m).        % прабабушка
+
+    sister_brother(mother_a, sister_of_mother_a, w).
+    sister_brother(father_a, brother_of_father_a, m).
+
+    parent(child_c, sister_of_mother_a, w).
+    parent(child_d, brother_of_father_a, m).
+    parent(child_e, brother_of_father_a, m).
+    parent(child_f, brother_of_father_a, m).
+
     parent(child_b, mother_b, w).
     parent(mother_b, father_of_mother_b, m).
 
@@ -35,7 +45,16 @@ CLAUSES
         parent(Child_, Parent_, ParentSex_),
         parent(Parent_, GrandParent_, GrandParentSex_).
 
+    grandgrandparent(Child_, GrandGrandParent_, ParentSex_, GrandParentSex_, GrandGrandParentSex_) :-
+        parent(Child_, Parent_, ParentSex_),
+        parent(Parent_, GrandParent_, GrandParentSex_).
+        parent(GrandParent_, GrandGrandParent_, GrandGrandParentSex_).
+
 GOAL
+    % grandparent(child_a, GrandMother, _, w).
+
+    grandgrandparent(child_a, GrandGrandMother, _, _, _).
+
     % Задание 1
     % По имени субъекта определить всех его бабушек
 
