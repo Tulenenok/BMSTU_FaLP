@@ -26,4 +26,81 @@ CLAUSES
 GOAL
         % Задание 1
         % По имени субъекта определить всех его бабушек
-        grandparent(child_a, GrandMother, _, w).
+
+        % grandparent(child_a, GrandMother, _, w).
+        /*
+            GrandMother=mother_of_mother_a
+            GrandMother=mother_of_father_a
+            2 Solutions
+        */
+
+        % grandparent(child_b, GrandMother, _, w).
+        /*
+            No Solution
+        */
+
+
+        % Задание 2
+        % По имени субъекта определить всех его дедушек
+
+        % grandparent(child_a, GrandFather, _, m).
+        /*
+            GrandFather=father_of_mother_a
+            GrandFather=father_of_father_a
+            2 Solutions
+        */
+
+        % grandparent(child_b, GrandFather, _, m).
+        /*
+            GrandFather=father_of_mother_b
+            1 Solution
+        */
+
+
+        % Задание 3
+        % По имени субъекта определить всех его бабушек и дедушек
+
+        % grandparent(child_a, Grand, _, _).
+        /*
+            Grand=mother_of_mother_a
+            Grand=father_of_mother_a
+            Grand=mother_of_father_a
+            Grand=father_of_father_a
+            4 Solutions
+        */
+
+        % grandparent(child_b, Grand, _, _).
+        /*
+            Grand=father_of_mother_b
+            1 Solution
+        */
+
+        % Задание 4
+        % По имени субъекта определить его бабушку по материнской линии
+
+        % grandparent(child_a, GrandMother, w, w).
+        /*
+            GrandMother=mother_of_mother_a
+            1 Solution
+        */
+
+        % grandparent(child_b, GrandMother, w, w).
+        /*
+            No Solution
+        */
+
+        % Задание 5
+        % По имени субъекта определить его бабушку и дедушку по материнской линии
+
+        % grandparent(child_a, Grand, w, _).
+        /*
+            Grand=mother_of_mother_a
+            Grand=father_of_mother_a
+            2 Solutions
+        */
+
+        % grandparent(child_b, Grand, w, _).
+        /*
+            Grand=father_of_mother_b
+            1 Solution
+        */
