@@ -15,7 +15,7 @@ PREDICATES
     grandparent(name, name, sex, sex).      % найти бабушку или дедушку
     aunt_uncle(name, name, sex, sex).       % найти тетю или дедю
     cousin(name, name, sex).                % найти кузину
-    child(name, name, sex, sex).            % найти ребенка
+    child(name, name).                      % найти ребенка
 
 
 CLAUSES
@@ -57,6 +57,9 @@ CLAUSES
         aunt_uncle(Child_, AuntOrUncle_, ParentSex_, _),
         parent(Cousin_, AuntOrUncle_).
 
+    child(Child_, Parent_) :-
+        parent(Child_, Parent_).
+
 GOAL
     % grandgrandparent(child_a, GrandGrandMother, _, _, _).
     /*
@@ -83,7 +86,7 @@ GOAL
         2 Solutions
     */
 
-    cousin(child_a, Cousin, _).
+    %cousin(child_a, Cousin, _).
     /*
         Cousin=child_c
         Cousin=child_d
@@ -91,3 +94,5 @@ GOAL
         Cousin=child_f
         4 Solutions
     */
+
+    child(Child, mother_of_father_of_mother_a).
