@@ -55,10 +55,10 @@ CLAUSES
     
     cousin(Child_, Cousin_, ParentSex_) :-
         aunt_uncle(Child_, AuntOrUncle_, ParentSex_, _),
-        parent(Cousin_, AuntOrUncle_).
+        parent(Cousin_, AuntOrUncle_, _).
 
     child(Child_, Parent_) :-
-        parent(Child_, Parent_).
+        parent(Child_, Parent_, _).
 
 GOAL
     % grandgrandparent(child_a, GrandGrandMother, _, _, _).
@@ -96,3 +96,7 @@ GOAL
     */
 
     child(Child, mother_of_father_of_mother_a).
+    /*
+        Child=father_of_mother_a
+        1 Solution
+    */
