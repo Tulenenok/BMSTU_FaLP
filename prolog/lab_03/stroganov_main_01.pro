@@ -56,20 +56,25 @@ CLAUSES
 GOAL
     grandgrandparent(child_a, GrandGrandMother, _, _, _).
     /*
-
+        GrandGrandMother=mother_of_father_of_mother_a
+        1 Solution
     */
 
-    %aunt_uncle(child_a, Aunt, _, w).
+    aunt_uncle(child_a, Aunt, _, w).
     /*
-
+        Aunt=sister_of_mother_a
+        1 Solution
     */
 
-    %aunt_uncle(child_a, Uncle, _, m).
+    aunt_uncle(child_a, Uncle, _, m).
     /*
-
+        Uncle=brother_of_father_a
+        1 Solution
     */
 
-    %aunt_uncle(child_a, AuntOrUncle, _, _).
+    aunt_uncle(child_a, AuntOrUncle, _, _).
     /*
-
+    AuntOrUncle=sister_of_mother_a
+    AuntOrUncle=brother_of_father_a
+    2 Solutions
     */
