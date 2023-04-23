@@ -46,8 +46,7 @@ CLAUSES
         parent(Parent_, GrandParent_, GrandParentSex_).
 
     grandgrandparent(Child_, GrandGrandParent_, ParentSex_, GrandParentSex_, GrandGrandParentSex_) :-
-        parent(Child_, Parent_, ParentSex_),
-        parent(Parent_, GrandParent_, GrandParentSex_).
+        grandparent(Child_, GrandParent_, ParentSex_, GrandParentSex_),
         parent(GrandParent_, GrandGrandParent_, GrandGrandParentSex_).
 
 GOAL
