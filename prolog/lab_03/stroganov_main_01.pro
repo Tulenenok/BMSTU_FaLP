@@ -6,7 +6,7 @@ DOMAINS
 
 PREDICATES
     % это будем задавать как базу знаний
-    parent(name, name, sex).                % описать мать или отца
+    parent(name, name, sex).           % описать мать или отца 
     sister_brother(name, name, sex).        % описать сестру или брата
 
 
@@ -14,7 +14,7 @@ PREDICATES
     grandgrandparent(name, name, sex, sex, sex). 
     grandparent(name, name, sex, sex).      % найти бабушку или дедушку
     aunt_uncle(name, name, sex, sex).       % найти тетю или дедю
-    cousin(name, name, sex, sex).           % найти кузину
+    cousin(name, name, sex).                % найти кузину
     child(name, name, sex, sex).            % найти ребенка
 
 
@@ -52,29 +52,35 @@ CLAUSES
     aunt_uncle(Child_, AuntUncle_, ParentSex_, AuntUncleSex_) :-
         parent(Child_, Parent_, ParentSex_),
         sister_brother(Parent_, AuntUncle_, AuntUncleSex_).
+    
+    cousin(Child_, Cousin_, ParentSex_) :-
+        aunt_uncle(Child_, AuntOrUncle_, ParentSex_, _),
+        parent(Child_, AuntOrUncle_).
 
 GOAL
-    grandgrandparent(child_a, GrandGrandMother, _, _, _).
+    % grandgrandparent(child_a, GrandGrandMother, _, _, _).
     /*
         GrandGrandMother=mother_of_father_of_mother_a
         1 Solution
     */
 
-    aunt_uncle(child_a, Aunt, _, w).
+    % aunt_uncle(child_a, Aunt, _, w).
     /*
         Aunt=sister_of_mother_a
         1 Solution
     */
 
-    aunt_uncle(child_a, Uncle, _, m).
+    % aunt_uncle(child_a, Uncle, _, m).
     /*
         Uncle=brother_of_father_a
         1 Solution
     */
 
-    aunt_uncle(child_a, AuntOrUncle, _, _).
+    % aunt_uncle(child_a, AuntOrUncle, _, _).
     /*
-    AuntOrUncle=sister_of_mother_a
-    AuntOrUncle=brother_of_father_a
-    2 Solutions
+        AuntOrUncle=sister_of_mother_a
+        AuntOrUncle=brother_of_father_a
+        2 Solutions
     */
+
+    cousin(child_a, Cousin, _).
