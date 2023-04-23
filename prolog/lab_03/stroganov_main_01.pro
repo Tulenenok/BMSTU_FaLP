@@ -49,5 +49,27 @@ CLAUSES
         grandparent(Child_, GrandParent_, ParentSex_, GrandParentSex_),
         parent(GrandParent_, GrandGrandParent_, GrandGrandParentSex_).
 
+    aunt_uncle(Child_, AuntUncle_, ParentSex_, AuntUncleSex_) :-
+        parent(Child_, Parent_, ParentSex_),
+        sister_brother(Parent_, AuntUncle_, AuntUncleSex_).
+
 GOAL
     grandgrandparent(child_a, GrandGrandMother, _, _, _).
+    /*
+
+    */
+
+    %aunt_uncle(child_a, Aunt, _, w).
+    /*
+
+    */
+
+    %aunt_uncle(child_a, Uncle, _, m).
+    /*
+
+    */
+
+    %aunt_uncle(child_a, AuntOrUncle, _, _).
+    /*
+
+    */
