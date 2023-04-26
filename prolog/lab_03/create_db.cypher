@@ -67,7 +67,15 @@ create
     (mother_a)-[:Sibling]->(sister_of_mother_a),
 
     (brother_of_father_a)-[:Sibling]->(father_a),
-    (father_a)-[:Sibling]->(brother_of_father_a)
+    (father_a)-[:Sibling]->(brother_of_father_a),
 
-    // До этого момента все как на прологе
+    // Настраиваем связи брак
+    (mother_a)-[:Marriage]->(father_a),
+    (father_a)-[:Marriage]->(mother_a),
+
+    (mother_of_mother_a)-[:Marriage]->(father_of_mother_a),
+    (father_of_mother_a)-[:Marriage]->(mother_of_mother_a),
+
+    (mother_of_father_a)-[:Marriage]->(father_of_father_a),
+    (father_of_father_a)-[:Marriage]->(mother_of_father_a)
 ;

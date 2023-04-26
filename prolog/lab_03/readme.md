@@ -33,14 +33,15 @@
 
 **Как все вывести**
 
-```
+```cypher
 MATCH p=()-[:Child|Parent|Sibling]->() RETURN p LIMIT 30;
 ```
 
 <img src="img/db.jpg">
 
 **Как все удалить**
-```
+
+```cypher
 match (n)
 detach delete n
 ```
@@ -49,7 +50,7 @@ detach delete n
 
 * Получить бабушек и дедушек для `child_a`.
 
-    ```sql
+    ```prolog
     grandparent(child_a, Grand, _, _).
 
     -- где
@@ -67,7 +68,7 @@ detach delete n
 
 * Получить прабабушек и прадедушек для `child_a`.
 
-    ```sql
+    ```prolog
     grandgrandparent(child_a, GrandGrandMother, _, _, _).
 
     -- гдe
@@ -85,7 +86,7 @@ detach delete n
 
 * Получить бабушек для `child_a`.
 
-    ```sql
+    ```prolog
     grandparent(child_a, Grand, _, f).
 
     -- где
@@ -102,7 +103,7 @@ detach delete n
 
 * Получить всех дедушек по материнской линии
 
-    ```sql
+    ```prolog
     grandparent(child_a, Grand, f, m).
 
     -- где
@@ -131,8 +132,55 @@ detach delete n
     match (father:Person{name:"brother_of_father_a"})-[:Parent]->(child:Person)
     return child.name;
 
-    % или
+    // или
 
     match (child:Person)-[:Child]->(father:Person{name:"brother_of_father_a"})
     return child.name;
     ```
+
+* Найти всех теть `child_a`
+
+    ```prolog
+    aunt_uncle(child_a, Aunt, _, w).
+
+    aunt_uncle(Child_, AuntUncle_, ParentSex_, AuntUncleSex_) :-
+        parent(Child_, Parent_, ParentSex_),
+        sister_brother(Parent_, AuntUncle_, AuntUncleSex_).
+    ```
+
+    ```cypher
+    match (child:Person{name:"child_a"})-[:Child]->(parent:Person)-[:Sibling]->(aunt:Person{sex:"f"})
+    return aunt.name;
+    ```
+
+* Найти всех теть и дядь `child_c`
+
+    ```prolog
+    aunt_uncle(child_c, AuntUncle, _, _).
+
+    aunt_uncle(Child_, AuntUncle_, ParentSex_, AuntUncleSex_) :-
+        parent(Child_, Parent_, ParentSex_),
+        sister_brother(Parent_, AuntUncle_, AuntUncleSex_).
+    ```
+
+    ```cypher
+    match (child:Person{name:"child_c"})-[:Child]->(parent:Person)-[:Sibling]->(auntUncle:Person)
+    match (auntUncle:Person)-[:Marriage]->(auntUncle1:Person)
+    return auntUncle.name, auntUncle1.name;
+    ```
+
+* Найти всех кузин и кузинов `child_e`
+
+    ```prolog
+    cousin(child_a, Cousin, _).
+
+    cousin(Child_, Cousin_, ParentSex_) :-
+        aunt_uncle(Child_, AuntOrUncle_, ParentSex_, _),
+        parent(Cousin_, AuntOrUncle_, _).
+    ```
+
+    ```cypher
+    match (child:Person{name:"child_e"})-[:Child]->(parent:Person)-[:Sibling]->(auntUncle:Person)-[:Parent]->(cousin:Person)
+    return cousin.name;
+    ```
+    
