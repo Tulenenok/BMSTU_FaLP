@@ -37,7 +37,7 @@
 MATCH p=()-[:Child|Parent|Sibling]->() RETURN p LIMIT 30;
 ```
 
-<img src="db.jpg">
+<img src="img/db.jpg">
 
 **Как все удалить**
 ```
@@ -45,12 +45,11 @@ match (n)
 detach delete n
 ```
 
-**Как что-нибудь получить**
+### Сравниваем всевозможные запросы
 
 * Получить бабушек и дедушек для `child_a`.
 
     ```sql
-    -- Prolog
     grandparent(child_a, Grand, _, _).
 
     -- где
@@ -69,7 +68,6 @@ detach delete n
 * Получить прабабушек и прадедушек для `child_a`.
 
     ```sql
-    -- Prolog
     grandgrandparent(child_a, GrandGrandMother, _, _, _).
 
     -- гдe
@@ -88,7 +86,6 @@ detach delete n
 * Получить бабушек для `child_a`.
 
     ```sql
-    -- Prolog
     grandparent(child_a, Grand, _, f).
 
     -- где
@@ -106,7 +103,6 @@ detach delete n
 * Получить всех дедушек по материнской линии
 
     ```sql
-    -- Prolog
     grandparent(child_a, Grand, f, m).
 
     -- где
@@ -119,4 +115,24 @@ detach delete n
     match (p3:Person{sex:"m"})-[:Parent]->(p2:Person{sex:"f"})
     match (p2:Person{sex:"f"})-[:Parent]->(p1:Person{name:"child_a"})
     return p3.name;
+    ```
+
+* Найти всех детей `brother_of_father_a`
+
+    ```prolog
+    child(Child, mother_of_father_of_mother_a).
+
+    -- где
+    child(Child_, Parent_) :-
+        parent(Child_, Parent_, _).
+    ```
+
+    ```cypher
+    match (father:Person{name:"brother_of_father_a"})-[:Parent]->(child:Person)
+    return child.name;
+
+    % или
+
+    match (child:Person)-[:Child]->(father:Person{name:"brother_of_father_a"})
+    return child.name;
     ```
