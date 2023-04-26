@@ -21,15 +21,17 @@ clauses
         factorial_help_func(Number, 1, Result).
 
 
-    fibbonachi_help_func(Number, Result, Start, End) :-
-        Number < 3,
+    fibbonachi_help_func(1, Result, _, End) :-
+        Result = End.
+
+    fibbonachi_help_func(2, Result, _, End) :-
         Result = End.
 
     fibbonachi_help_func(Number, Result, Start, End) :-
+        Number > 2,
         NewNumber = Number - 1,
-        Tmp = End,
         NewEnd = Start + End,
-        NewStart = Tmp
+        NewStart = End,
         fibbonachi_help_func(NewNumber, Result, NewStart, NewEnd).
 
     fibbonachi(Number, Result) :-
