@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-04T00:20:09.119Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.0.2317 Yowser/2.5 Safari/537.36" etag="lrUgcKM0h-OhFMnBh9Mg" version="21.2.7" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-05-04T00:24:57.255Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.0.2317 Yowser/2.5 Safari/537.36" etag="e865K4b5OMroYdxbnIzb" version="21.2.7" type="github" pages="3">
   <diagram name="люди" id="YRD_Q1C8FF90WvA4XhZ_">
     <mxGraphModel dx="906" dy="1675" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -251,7 +251,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ynHimr2JroPVg35LUsbD" name="Страница 3">
-    <mxGraphModel dx="3020" dy="1687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2265" dy="1265" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -445,7 +445,7 @@
         <mxCell id="Va0IHe8cD6RRHPj9J3DL-20" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
           <mxGeometry x="1368" y="2180" width="286" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="Va0IHe8cD6RRHPj9J3DL-21" value="Подстановка&lt;br&gt;Father = father_a&lt;br&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: &amp;quot;.Apple Color Emoji UI&amp;quot;; text-align: start;&quot; class=&quot;p1&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;✅&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-21" value="Подстановка&lt;br&gt;Father = father_father_a&lt;br&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: &amp;quot;.Apple Color Emoji UI&amp;quot;; text-align: start;&quot; class=&quot;p1&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;✅&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="442.5" y="2330" width="177" height="90" as="geometry" />
         </mxCell>
       </root>
