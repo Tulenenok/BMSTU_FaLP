@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-04T00:07:34.988Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.0.2317 Yowser/2.5 Safari/537.36" etag="luuL1bv_9FRrwH0BmQce" version="21.2.7" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-05-04T00:20:09.119Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.0.2317 Yowser/2.5 Safari/537.36" etag="lrUgcKM0h-OhFMnBh9Mg" version="21.2.7" type="github" pages="3">
   <diagram name="люди" id="YRD_Q1C8FF90WvA4XhZ_">
     <mxGraphModel dx="906" dy="1675" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -241,11 +241,212 @@
         <mxCell id="bFrZO7lgPDEomvtEJxUh-23" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
           <mxGeometry x="1350" y="850" width="286" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="bFrZO7lgPDEomvtEJxUh-29" value="Подстановка&lt;br&gt;Father = father_a" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="bFrZO7lgPDEomvtEJxUh-29" value="Подстановка&lt;br&gt;Father = father_a&lt;br&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: &amp;quot;.Apple Color Emoji UI&amp;quot;; text-align: start;&quot; class=&quot;p1&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;✅&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="64.5" y="1000" width="177" height="90" as="geometry" />
         </mxCell>
         <mxCell id="bFrZO7lgPDEomvtEJxUh-31" value="Дерево поиска решения для &lt;br style=&quot;font-size: 16px;&quot;&gt;задачи об n-ом дедушке, &lt;br style=&quot;font-size: 16px;&quot;&gt;для вопроса об отце ребенка child_a" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#6c8ebf;fillColor=#dae8fc;fontStyle=1;fontSize=16;" vertex="1" parent="1">
           <mxGeometry x="120" y="90" width="320" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ynHimr2JroPVg35LUsbD" name="Страница 3">
+    <mxGraphModel dx="3020" dy="1687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-6" target="tRJnW9DRpzkrM1uwwxxP-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-6" target="tRJnW9DRpzkrM1uwwxxP-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-6" target="tRJnW9DRpzkrM1uwwxxP-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-6" target="tRJnW9DRpzkrM1uwwxxP-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-6" target="tRJnW9DRpzkrM1uwwxxP-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-6" value="get_nth_grandfather(child_a, Father, 1)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="700" y="160" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-7" value="name_father(child_a, father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="20" y="430" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-8" value="name_father(father_a, father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="380" y="430" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-9" value="name_father(father_father_a, father_father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="700" y="430" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-11" value="get_nth_grandfather(Child, Father, 0)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="430" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-13" target="tRJnW9DRpzkrM1uwwxxP-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-13" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="430" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-33" target="tRJnW9DRpzkrM1uwwxxP-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1181" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-33" target="tRJnW9DRpzkrM1uwwxxP-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="531" y="1040" as="targetPoint" />
+            <mxPoint x="1181" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-33" target="tRJnW9DRpzkrM1uwwxxP-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1181" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-33" target="tRJnW9DRpzkrM1uwwxxP-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1181" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-33" target="tRJnW9DRpzkrM1uwwxxP-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1181" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-22" target="tRJnW9DRpzkrM1uwwxxP-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-22" value="name_father(child_a, father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="28" y="1090" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-23" value="name_father(father_a, father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="388" y="1090" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-24" value="name_father(father_father_a, father_father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="708" y="1090" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-25" value="get_nth_grandfather(Child, Father, 0)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1038" y="1090" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-26" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="1090" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-27" target="tRJnW9DRpzkrM1uwwxxP-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-27" value="F = father_a" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="82.5" y="1240" width="177" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-28" value="Дерево поиска решения для &lt;br style=&quot;font-size: 16px;&quot;&gt;задачи об n-ом дедушке, &lt;br style=&quot;font-size: 16px;&quot;&gt;для вопроса о дедушке ребенка child_a" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#6c8ebf;fillColor=#dae8fc;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="110" y="90" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-30" target="tRJnW9DRpzkrM1uwwxxP-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-30" value="Rank = 1&lt;br&gt;Child = child_a" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1414.5" y="560" width="177" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-32" target="tRJnW9DRpzkrM1uwwxxP-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-32" value="Rank &amp;gt; 1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="730" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-33" value="name_father(child_a, F)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="870" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-36" target="Va0IHe8cD6RRHPj9J3DL-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-23" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-36" target="Va0IHe8cD6RRHPj9J3DL-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-24" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-36" target="Va0IHe8cD6RRHPj9J3DL-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-36" target="Va0IHe8cD6RRHPj9J3DL-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-26" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-36" target="Va0IHe8cD6RRHPj9J3DL-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-36" value="get_nth_grandfather(father_a, Father, 0)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="28" y="1522" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="tRJnW9DRpzkrM1uwwxxP-37" target="tRJnW9DRpzkrM1uwwxxP-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tRJnW9DRpzkrM1uwwxxP-37" value="DecRank = Rank - 1 = 0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="82.5" y="1380" width="177" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-1" value="name_father(child_a, father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="28" y="1760" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-2" value="name_father(father_a, father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="398" y="1760" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-3" value="name_father(father_father_a, father_father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="718" y="1760" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-5" target="Va0IHe8cD6RRHPj9J3DL-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-5" value="get_nth_grandfather(Child, Father, 0)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1038" y="1760" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-7" target="Va0IHe8cD6RRHPj9J3DL-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-7" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1378" y="1760" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-13" target="Va0IHe8cD6RRHPj9J3DL-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-13" target="Va0IHe8cD6RRHPj9J3DL-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="531" y="2100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-13" target="Va0IHe8cD6RRHPj9J3DL-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-13" target="Va0IHe8cD6RRHPj9J3DL-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-13" target="Va0IHe8cD6RRHPj9J3DL-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-13" value="name_father(father_a, Father)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1038" y="1910" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-14" value="Rank &amp;gt; 0" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1378" y="1910" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Va0IHe8cD6RRHPj9J3DL-17" target="Va0IHe8cD6RRHPj9J3DL-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-16" value="name_father(child_a, father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="28" y="2180" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-17" value="name_father(father_a, father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="388" y="2180" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-18" value="name_father(father_father_a, father_father_father_a)." style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="708" y="2180" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-19" value="get_nth_grandfather(Child, Father, 0)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1038" y="2180" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-20" value="get_nth_grandfather(Child, Father, Rank)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="1368" y="2180" width="286" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Va0IHe8cD6RRHPj9J3DL-21" value="Подстановка&lt;br&gt;Father = father_a&lt;br&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: &amp;quot;.Apple Color Emoji UI&amp;quot;; text-align: start;&quot; class=&quot;p1&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;✅&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="442.5" y="2330" width="177" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
