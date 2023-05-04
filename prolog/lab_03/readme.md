@@ -184,3 +184,12 @@ detach delete n
     return cousin.name;
     ```
     
+ ### Дерево поиска решения на prolog
+ 
+ Попытка 1
+ 
+ <img src="img/tree_01.svg" width="800px">
+ 
+  Попытка 2
+    
+ <img src="img/tree_02.svg" width="800px">
